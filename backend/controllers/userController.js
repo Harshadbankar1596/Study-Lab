@@ -1421,6 +1421,9 @@ const punch = async (req, res) => {
     const now = new Date();
     const today = now.toLocaleDateString();
     const currentTime = now.toLocaleTimeString();
+    console.log("date => " , today);
+    console.log("time => " , currentTime);
+    
 
     // Step 1: Find logs for this user
     let userLogs = await Logs.findOne({ User: id });
