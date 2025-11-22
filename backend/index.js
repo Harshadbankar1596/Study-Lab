@@ -1,5 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
+process.env.TZ = "Asia/Kolkata";
+
 const express = require('express');
 const connectDb = require('./db/db');
 const app = express();
