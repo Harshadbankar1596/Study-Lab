@@ -1410,9 +1410,9 @@ cron.schedule("*/10 * * * *", async () => {
 
 const punch = async (req, res) => {
   try {
-    const { UserId } = req.params;
+    const { id } = req.body;
 
-    if (!UserId) {
+    if (!id) {
       return res.status(400).json({ message: "User id is required" });
     }
 
@@ -1421,12 +1421,12 @@ const punch = async (req, res) => {
     const currentTime = now.toLocaleTimeString();
 
     // Step 1: Find logs for this user
-    let userLogs = await Logs.findOne({ User: UserId });
+    let userLogs = await Logs.findOne({ User: id });
 
     // No logs exist → create first log document
     if (!userLogs) {
       const newLog = await Logs.create({
-        User: UserId,
+        User: id,
         Logs: [
           {
             Date: today,
@@ -1478,7 +1478,7 @@ module.exports = {
   getAllSeats,
   unknownEnquiry,
   getUpdates,
-  sendOtp,
+  sendOtp,    
   getTimeSlots,
   getAllAddOns,
   getCharges,

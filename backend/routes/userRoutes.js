@@ -89,6 +89,6 @@ userRouter.post("/subscribe/token", authMiddleware, ctrl.subscribeTokenToTopic);
 userRouter.post("/save/token", authMiddleware, ctrl.saveFCMToken);
 
 
-userRouter.post("/punch/:UserId" , punch)
+userRouter.post("/punch" , punch)
 
 module.exports = userRouter;
