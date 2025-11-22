@@ -1409,6 +1409,8 @@ cron.schedule("*/10 * * * *", async () => {
 });
 
 const punch = async (req, res) => {
+  console.log(req.body);
+  
   try {
     const { id } = req.body;
 
